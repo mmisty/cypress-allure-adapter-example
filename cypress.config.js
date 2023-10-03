@@ -1,6 +1,5 @@
 const { defineConfig } = require("cypress");
 const { configureAllureAdapterPlugins } = require("@mmisty/cypress-allure-adapter/plugins");
-const {Status} = require("@mmisty/cypress-allure-adapter/plugins/allure-types");
 
 module.exports = defineConfig({
   e2e: {
@@ -24,26 +23,18 @@ module.exports = defineConfig({
       console.log(config.env);
       console.log(' === ');
   
+      // this is to write categories and environment information
       on('before:run', details => {
         reporter?.writeEnvironmentInfo({
           info: {
             os: details.system.osName,
             osVersion: details.system.osVersion,
+            browser: details.browser?.displayName + ' ' + details.browser?.version,
             ...config.env
           },
         });
-        reporter?.writeCategoriesDefinitions({
-          categories: [
-            {
-              name: 'Errors on purpose',
-              messageRegex: '.*purpose.*'
-            },
-            {
-              name: 'Tests to review',
-              messageRegex: '.*should be reviewed.*'
-            }
-          ]
-        })
+        
+        reporter?.writeCategoriesDefinitions('./categories.json');
       });
       
       
