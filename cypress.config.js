@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 const { configureAllureAdapterPlugins } = require("@mmisty/cypress-allure-adapter/plugins");
+const {Status} = require("@mmisty/cypress-allure-adapter/plugins/allure-types");
 
 module.exports = defineConfig({
   e2e: {
@@ -17,11 +18,34 @@ module.exports = defineConfig({
     video: true,
     specPattern: 'cypress/e2e/**/*.cy.js',
     setupNodeEvents(on, config) {
-      configureAllureAdapterPlugins(on, config);
+      const reporter = configureAllureAdapterPlugins(on, config);
       
       console.log(' === ENVIRONMENT:');
       console.log(config.env);
       console.log(' === ');
+  
+      on('before:run', details => {
+        reporter?.writeEnvironmentInfo({
+          info: {
+            os: details.system.osName,
+            osVersion: details.system.osVersion,
+            ...config.env
+          },
+        });
+        reporter?.writeCategoriesDefinitions({
+          categories: [
+            {
+              name: 'Errors on purpose',
+              messageRegex: '.*purpose.*'
+            },
+            {
+              name: 'Tests to review',
+              messageRegex: '.*should be reviewed.*'
+            }
+          ]
+        })
+      });
+      
       
       // important to return config
       return config;

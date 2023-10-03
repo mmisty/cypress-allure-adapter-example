@@ -1,5 +1,6 @@
 describe('login', () => {
   beforeEach('visit app', ()=> {
+    cy.allure().tag('@login')
     cy.log('visit app step');
   })
   

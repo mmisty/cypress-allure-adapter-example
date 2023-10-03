@@ -21,6 +21,10 @@ Cypress.Commands.add('throw',  (message, options) => {
     throw new Error(message);
 })
 
+Cypress.Commands.add('qaId',  (selector, options) => {
+    cy.get(`[data-qa-id=${selector}`);
+})
+
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
