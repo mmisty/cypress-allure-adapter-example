@@ -34,7 +34,7 @@ module.exports = defineConfig({
           },
         });
         
-        reporter?.writeCategoriesDefinitions('./categories.json');
+        reporter?.writeCategoriesDefinitions('./allure-error-categories.json');
       });
       
       
