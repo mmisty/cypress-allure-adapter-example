@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "npx cypress open",
-    "cy:run": "npx cypress run --browser chrome --headless",
-    "cy:run:allure": "npx cypress run --browser chrome --headless --env allure=true",
+    "cy:run": "npx cypress run --browser chrome --headless --env allure=true",
     "report:open":  "allure serve",
     "report:generate":  "allure generate",
     "cy:run:with:report":  "(npm run cy:run || true) && npm run report:open",

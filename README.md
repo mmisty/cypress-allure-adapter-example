@@ -1,8 +1,8 @@
 # cypress-allure-adapter example
 
-This is example of [@mmisty/cypress-allure-adapter](https://www.npmjs.com/package/@mmisty/cypress-allure-adapter) package usage for cypress
+This is javascript example of using [@mmisty/cypress-allure-adapter](https://www.npmjs.com/package/@mmisty/cypress-allure-adapter) package with cypress
 
-Install all packages by `npm i`
+Before running scripts install all packages by `npm i`.
 
 ## Scripts
 - open cypress interactive mode:
