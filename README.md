@@ -24,3 +24,6 @@ Before running scripts install all packages by `npm i`.
    ```shell
    npm run cy:run:with:report
    ```
+   
+
+To see report example you can visit [https://mmisty.github.io/cypress-allure-adapter-example](https://mmisty.github.io/cypress-allure-adapter-example)
