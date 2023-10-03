@@ -18,3 +18,9 @@ import '@mmisty/cypress-allure-adapter/support';
 
 // Import commands.js using ES2015 syntax:
 import './commands';
+
+// example adding host and thread to see in timeline
+Cypress.Allure?.on('test:started', () => {
+  Cypress.Allure.host('my-host');
+  Cypress.Allure.thread(Cypress.env('thread') ?? '01');
+})
