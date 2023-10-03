@@ -16,10 +16,15 @@
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
+
+Cypress.Commands.add('throw',  (message, options) => {
+    throw new Error(message);
+})
+
+Cypress.Commands.add('qaId',  (selector, options) => {
+    cy.get(`[data-test-id=${selector}`);
+})
+
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })

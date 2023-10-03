@@ -9,6 +9,8 @@
     "report:open":  "allure serve",
     "report:generate":  "allure generate",
     "cy:run:with:report":  "(npm run cy:run || true) && npm run report:open",
+    "pages:update":  "(npm run cy:run || true) && mv -f docs/history allure-results/history || true && npm run report:generate -- --clean && rm -rf docs && cp -R allure-report docs",
+    "report:history": "mv -f docs/history allure-results/history && rm -r allure-report || true",
     "report":  "npm run report:open"
   },
   "repository": {
@@ -18,9 +20,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mmisty/cypress-grep-example/issues"
+    "url": "https://github.com/mmisty/cypress-allure-adapter-example/issues"
   },
-  "homepage": "https://github.com/mmisty/cypress-grep-example#readme",
+  "homepage": "https://github.com/mmisty/cypress-allure-adapter-example#readme",
   "dependencies": {
     "@mmisty/cypress-allure-adapter": "^0.10.7",
     "allure-commandline": "^2.24.0",

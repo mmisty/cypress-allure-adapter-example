@@ -1,0 +1,1 @@
+[{"values":["darwin"],"name":"os"},{"values":["21.6.0"],"name":"osVersion"},{"values":["Chrome 117.0.5938.132"],"name":"browser"},{"values":["true"],"name":"allure"},{"values":["true"],"name":"allureCleanResults"},{"values":["wrap"],"name":"allureSkipCommands"},{"values":["allure-results"],"name":"allureResults"},{"values":["61356"],"name":"allureWsPort"}]
