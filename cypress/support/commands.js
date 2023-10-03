@@ -22,7 +22,7 @@ Cypress.Commands.add('throw',  (message, options) => {
 })
 
 Cypress.Commands.add('qaId',  (selector, options) => {
-    cy.get(`[data-qa-id=${selector}`);
+    cy.get(`[data-test-id=${selector}`);
 })
 
 //

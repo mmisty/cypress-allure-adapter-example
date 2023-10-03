@@ -1,6 +1,7 @@
 /.idea
 /node_modules
 /cypress/videos
+/cypress/downloads
 /cypress/screenshots
 /allure-results
 /allure-report
