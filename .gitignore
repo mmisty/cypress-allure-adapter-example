@@ -2,4 +2,5 @@
 /node_modules
 /cypress/videos
 /cypress/screenshots
-filtered_tests.json
+/allure-results
+/allure-report

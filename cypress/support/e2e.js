@@ -12,10 +12,9 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
+//impiort cypress allure adapter first to have all custom
+// commands being collapsed in report as parent command
+import '@mmisty/cypress-allure-adapter/support';
 
 // Import commands.js using ES2015 syntax:
 import './commands';
-import '@mmisty/cypress-grep/register';
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')

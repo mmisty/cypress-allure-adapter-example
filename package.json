@@ -6,8 +6,11 @@
   "scripts": {
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run --browser chrome --headless",
-    "cy:grep": "cy-grep --script 'npm run cy:run'",
-    "cy:p1": "npm run cy:grep -- --grep='@P1'"
+    "cy:run:allure": "npx cypress run --browser chrome --headless --env allure=true",
+    "report:open":  "allure serve",
+    "report:generate":  "allure generate",
+    "cy:run:with:report":  "(npm run cy:run || true) && npm run report:open",
+    "report":  "npm run report:open"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,8 @@
   },
   "homepage": "https://github.com/mmisty/cypress-grep-example#readme",
   "dependencies": {
-    "@mmisty/cypress-grep": "^1.6.2",
-    "cypress": "^12.17.4"
+    "@mmisty/cypress-allure-adapter": "^0.10.7",
+    "allure-commandline": "^2.24.0",
+    "cypress": "^13.3.0"
   }
 }
