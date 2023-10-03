@@ -1,0 +1,26 @@
+{
+  "name": "cypress-grep-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run --browser chrome --headless",
+    "cy:grep": "cy-grep --script 'npm run cy:run'",
+    "cy:p1": "npm run cy:grep -- --grep='@P1'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmisty/cypress-grep-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmisty/cypress-grep-example/issues"
+  },
+  "homepage": "https://github.com/mmisty/cypress-grep-example#readme",
+  "dependencies": {
+    "@mmisty/cypress-grep": "^1.6.2",
+    "cypress": "^12.17.4"
+  }
+}
