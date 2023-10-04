@@ -33,8 +33,8 @@ module.exports = defineConfig({
             ...config.env
           },
         });
-        
-        reporter?.writeCategoriesDefinitions('./allure-error-categories.json');
+  
+         reporter?.writeCategoriesDefinitions({ categories: './allure-error-categories.json' });
       });
       
       
