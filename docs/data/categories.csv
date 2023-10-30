@@ -1,3 +1,4 @@
 "Category","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
-"Product defects","5","0","0","0","0"
-"Test defects","0","1","0","0","0"
+"Errors on purpose","3","0","0","0","0"
+"Product defects","2","0","0","0","0"
+"Tests to review","0","1","0","1","0"
