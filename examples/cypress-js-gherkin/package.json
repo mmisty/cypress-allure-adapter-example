@@ -34,5 +34,8 @@
     "@mmisty/cypress-allure-adapter": "0.15.2",
     "allure-commandline": "^2.24.1",
     "cypress": "^13.5.0"
+  },
+  "devDependencies": {
+    "events": "^3.3.0"
   }
 }

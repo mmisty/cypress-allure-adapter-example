@@ -4,6 +4,9 @@ const  createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const { defineConfig } = require("cypress");
 const { configureAllureAdapterPlugins } = require("@mmisty/cypress-allure-adapter/plugins");
 const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor");
+const EventForwarder = require("./event-forwarder");
+
+const eventForwarder = new EventForwarder();
 
 module.exports = defineConfig({
   e2e: {
@@ -21,7 +24,7 @@ module.exports = defineConfig({
       // can use allure env var here or from cmd line by
       // `npx cypress run --env allure=true` or `CYPRESS_allure=true npx cypress run`
       allure: true,
-      allureCleanResults: true,
+      // allureCleanResults: true,
       allureSkipCommands: 'wrap',
       allureResults: '../../allure-results',
       // when using Allure TestOps:
@@ -29,7 +32,8 @@ module.exports = defineConfig({
       tmsPrefix: 'https://jira/browse/*',
       issuePrefix: 'https://jira/browse/*',
     },
-    setupNodeEvents: async function (on, config) {
+    setupNodeEvents: async function (cyOn, config) {
+      const on = eventForwarder.on;
       const reporter = configureAllureAdapterPlugins(on, config);
       
       console.log(' === ENVIRONMENT:');
@@ -58,7 +62,9 @@ module.exports = defineConfig({
       });
     
       await addCucumberPreprocessorPlugin(on, config);
-    
+      
+      eventForwarder.forward(cyOn);
+      
       // important to return config
       return config;
     },
