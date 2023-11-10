@@ -3,19 +3,19 @@ const { configureAllureAdapterPlugins } = require("@mmisty/cypress-allure-adapte
 
 module.exports = defineConfig({
   e2e: {
+    defaultCommandTimeout: 1500,
+    video: true,
+    specPattern: 'cypress/e2e/**/*.cy.js',
     env: {
       // can use allure env var here or from cmd line by
       // `npx cypress run --env allure=true` or `CYPRESS_allure=true npx cypress run`
       allure: true,
       allureCleanResults: true,
       allureSkipCommands: 'wrap',
-      allureResults: 'allure-results',
+      allureResults: '../../allure-results',
       // when using Allure TestOps:
       // allureResultsWatchPath: 'allure-results/watch'
     },
-    defaultCommandTimeout: 1500,
-    video: true,
-    specPattern: 'cypress/e2e/**/*.cy.js',
     setupNodeEvents(on, config) {
       const reporter = configureAllureAdapterPlugins(on, config);
       

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Errors on purpose",
+    "messageRegex": ".*purpose.*"
+  },
+  {
+    "name": "Tests to review",
+    "messageRegex": ".*should be reviewed.*"
+  }
+]

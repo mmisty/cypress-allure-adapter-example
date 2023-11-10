@@ -12,7 +12,7 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-//impiort cypress allure adapter first to have all custom
+// import cypress allure adapter first to have all custom
 // commands being collapsed in report as parent command
 import '@mmisty/cypress-allure-adapter/support';
 

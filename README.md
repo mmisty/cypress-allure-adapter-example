@@ -1,10 +1,19 @@
 # cypress-allure-adapter example
 
-This is javascript example of using [@mmisty/cypress-allure-adapter](https://www.npmjs.com/package/@mmisty/cypress-allure-adapter) package with cypress
+This is repo with examples of using [@mmisty/cypress-allure-adapter](https://www.npmjs.com/package/@mmisty/cypress-allure-adapter) package with cypress
+
+
+There are several examples: 
+ - cypress-js (setup and usage with javascript)
+ - cypress-js-gherkin (setup and usage with javascript and gherkin plugin @badeball/cypress-cucumber-preprocessor)
+
+To check out go in examples folder.
+
+## Scripts
+Each example folder has scripts.
 
 Before running scripts install all packages by `npm i`.
 
-## Scripts
 - open cypress interactive mode:
    ```shell
    npm run cy:open
@@ -14,7 +23,7 @@ Before running scripts install all packages by `npm i`.
    ```shell
    npm run cy:run
    ```
-
+## Root scripts
 - open allure report :
    ```shell
    npm run report:open

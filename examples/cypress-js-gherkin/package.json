@@ -1,0 +1,38 @@
+{
+  "name": "cypress-allure-adapter-with-gherkin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "npx cypress open --e2e",
+    "cy:run": "npx cypress run --browser chrome --headless --env allure=true",
+    "report:open": "allure serve ../../../allure-results",
+    "report:generate": "allure generate ../../../allure-results",
+    "cy:run:with:report": "(npm run cy:run || true) && npm run report:open",
+    "pages:update": "(npm run cy:run || true) && mv -f docs/history allure-results/history || true && npm run report:generate -- --clean && rm -rf docs && cp -R allure-report docs",
+    "report:history": "mv -f docs/history allure-results/history && rm -r allure-report || true",
+    "report": "npm run report:open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmisty/cypress-grep-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmisty/cypress-allure-adapter-example/issues"
+  },
+  "homepage": "https://github.com/mmisty/cypress-allure-adapter-example#readme",
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/support/steps.js"
+    ]
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^19.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@mmisty/cypress-allure-adapter": "0.15.2",
+    "allure-commandline": "^2.24.1",
+    "cypress": "^13.5.0"
+  }
+}
