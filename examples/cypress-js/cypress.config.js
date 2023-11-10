@@ -10,7 +10,7 @@ module.exports = defineConfig({
       // can use allure env var here or from cmd line by
       // `npx cypress run --env allure=true` or `CYPRESS_allure=true npx cypress run`
       allure: true,
-      allureCleanResults: true,
+      // allureCleanResults: true,
       allureSkipCommands: 'wrap',
       allureResults: '../../allure-results',
       // when using Allure TestOps:
