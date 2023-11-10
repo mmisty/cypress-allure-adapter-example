@@ -45,7 +45,7 @@ module.exports = defineConfig({
         plugins: [createEsbuildPlugin(config)],
       });
       
-      on('file:preprocessor', cucumberBundler);
+      cyOn('file:preprocessor', cucumberBundler);
       
       // this is to write categories and environment information
       on('before:run', details => {
