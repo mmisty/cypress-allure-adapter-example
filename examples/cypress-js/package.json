@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mmisty/cypress-grep-example.git"
+    "url": "git+https://github.com/mmisty/cypress-allure-adapter-example.git"
   },
   "author": "",
   "license": "ISC",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/mmisty/cypress-allure-adapter-example#readme",
   "dependencies": {
-    "@mmisty/cypress-allure-adapter": "0.15.2",
+    "@mmisty/cypress-allure-adapter": "^0.15.2",
     "allure-commandline": "^2.24.1",
     "cypress": "^13.5.0"
   }

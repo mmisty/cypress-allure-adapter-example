@@ -1,5 +1,5 @@
 declare namespace Cypress {
-  interface Chainable<S> {
+  interface Chainable<Subject = any> {
     qaId(selector: string): Chainable<JQuery>;
     throw(message: string): Chainable<void>;
   }

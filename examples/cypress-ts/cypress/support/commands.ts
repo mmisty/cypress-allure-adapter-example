@@ -17,11 +17,11 @@
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
 
-Cypress.Commands.add('throw',  (message, options) => {
+Cypress.Commands.add('throw',  (message) => {
     throw new Error(message);
 })
 
-Cypress.Commands.add('qaId',  (selector, options) => {
+Cypress.Commands.add('qaId',  (selector) => {
     cy.get(`[data-test-id=${selector}`);
 })
 
