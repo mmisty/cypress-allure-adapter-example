@@ -12,7 +12,7 @@ module.exports = defineConfig({
       allure: true,
       // allureCleanResults: true,
       allureSkipCommands: 'wrap',
-      allureResults: '../../allure-results',
+      allureResults: '../../allure-results', // in your project usually this path should be 'allure-results'
       // when using Allure TestOps:
       // allureResultsWatchPath: 'allure-results/watch'
     },
