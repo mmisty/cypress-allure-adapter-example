@@ -40,7 +40,7 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^19.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "@mmisty/cypress-allure-adapter": "0.16.4",
+    "@mmisty/cypress-allure-adapter": "0.16.5",
     "allure-commandline": "^2.24.1",
     "cypress": "^13.10.0"
   },
