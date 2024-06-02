@@ -13,7 +13,7 @@
     "cy:js": "cd examples/cypress-js && npm run cy:run",
     "cy:gherkin": "cd examples/cypress-js-gherkin && npm run cy:run",
     "cy:ts": "cd examples/cypress-ts && npm run cy:run",
-    "cy:all": "rm -rf allure-results allure-report && npm run cy:js || true && npm run cy:gherkin || true",
+    "cy:all": "rm -rf allure-results allure-report && npm run cy:js || true && npm run cy:gherkin || true && npm run cy:ts || true",
     "report:open": "allure serve",
     "report:generate": "allure generate",
     "cy:run:with:report": "(npm run cy:all || true) && npm run report:open",
@@ -40,9 +40,9 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^19.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "@mmisty/cypress-allure-adapter": "0.14.2",
+    "@mmisty/cypress-allure-adapter": "0.16.5",
     "allure-commandline": "^2.24.1",
-    "cypress": "^13.4.0"
+    "cypress": "^13.10.0"
   },
   "devDependencies": {
     "events": "^3.3.0"
