@@ -6,12 +6,9 @@
   "scripts": {
     "cy:open": "npx cypress open --e2e",
     "cy:run": "rm -rf allure-results && npx cypress run --browser chrome --headless --env allure=true",
+    "cp": "cp -r allure-results ../../",
     "report:open": "allure serve",
     "report:generate": "allure generate",
-    "cp": "cp -r allure-results ../../allure-results",
-    "cy:run:with:report": "(npm run cy:run || true) && npm run report:open",
-    "pages:update": "(npm run cy:run || true) && mv -f docs/history allure-results/history || true && npm run report:generate -- --clean && rm -rf docs && cp -R allure-report docs",
-    "report:history": "mv -f docs/history allure-results/history && rm -r allure-report || true",
     "report": "npm run report:open"
   },
   "repository": {

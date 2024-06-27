@@ -1,5 +1,16 @@
 const { defineConfig } = require("cypress");
+const { readFileSync } = require("fs");
 const { configureAllureAdapterPlugins } = require("@mmisty/cypress-allure-adapter/plugins");
+
+const packageVersion = (packagename)=> {
+  try {
+    const versions = JSON.parse(readFileSync('package-lock.json'));
+    return versions['packages']?.[`node_modules/${packagename}`]?.['version'];
+  }
+  catch (e){
+    return 'could not get allure adapter version'
+  }
+}
 
 module.exports = defineConfig({
   e2e: {
@@ -18,8 +29,12 @@ module.exports = defineConfig({
     },
     setupNodeEvents(on, config) {
       const reporter = configureAllureAdapterPlugins(on, config);
+      const allureAdapterVersion = packageVersion('@mmisty/cypress-allure-adapter');
+      const cypressVersion = packageVersion('cypress');
       
       console.log(' === ENVIRONMENT:');
+      console.log(`Cypress version: ${cypressVersion}`);
+      console.log(`Allure adapter version: ${allureAdapterVersion}`);
       console.log(config.env);
       console.log(' === ');
   
@@ -27,6 +42,8 @@ module.exports = defineConfig({
       on('before:run', details => {
         reporter?.writeEnvironmentInfo({
           info: {
+            "cypress version": cypressVersion,
+            "allure adapter version": allureAdapterVersion,
             os: details.system.osName,
             osVersion: details.system.osVersion,
             browser: details.browser?.displayName + ' ' + details.browser?.version,
@@ -34,6 +51,7 @@ module.exports = defineConfig({
           },
         });
   
+         // this can be removed if you don't want to group tests into categories in AllureReport
          reporter?.writeCategoriesDefinitions({ categories: './allure-error-categories.json' });
       });
       

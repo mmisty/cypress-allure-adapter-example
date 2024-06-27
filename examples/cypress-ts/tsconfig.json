@@ -8,5 +8,5 @@
     "skipLibCheck": true,
     "moduleResolution": "node"
   },
-  "include": ["**/*.ts"]
+  "include": ["cypress/**/*.ts", "cypress.config.ts","cypress/*.ts"]
 }

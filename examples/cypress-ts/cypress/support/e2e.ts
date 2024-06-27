@@ -56,5 +56,6 @@ const addSuiteLabels = (test: Mocha.Test, parentSuite: string) => {
 Cypress.Allure?.on('test:started', (test) => {
   Cypress.Allure.host('my-host');
   Cypress.Allure.thread(Cypress.env('thread') ?? '01');
+  Cypress.Allure.fullName(`cypress-ts ${test.fullTitle()}`);
   addSuiteLabels(test, 'cypress-ts')
 })

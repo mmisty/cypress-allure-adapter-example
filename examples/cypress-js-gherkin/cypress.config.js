@@ -2,11 +2,22 @@ const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esb
 const  createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 
 const { defineConfig } = require("cypress");
+const { readFileSync } = require("fs");
 const { configureAllureAdapterPlugins } = require("@mmisty/cypress-allure-adapter/plugins");
 const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor");
 const EventForwarder = require("./event-forwarder");
 
 const eventForwarder = new EventForwarder();
+
+const packageVersion = (packagename)=> {
+  try {
+    const versions = JSON.parse(readFileSync('package-lock.json'));
+    return versions['packages']?.[`node_modules/${packagename}`]?.['version'];
+  }
+  catch (e){
+    return 'could not get allure adapter version'
+  }
+}
 
 module.exports = defineConfig({
   e2e: {
@@ -35,8 +46,12 @@ module.exports = defineConfig({
     setupNodeEvents: async function (cyOn, config) {
       const on = eventForwarder.on;
       const reporter = configureAllureAdapterPlugins(on, config);
+      const allureAdapterVersion = packageVersion('@mmisty/cypress-allure-adapter');
+      const cypressVersion = packageVersion('cypress');
       
       console.log(' === ENVIRONMENT:');
+      console.log(`Cypress version: ${cypressVersion}`);
+      console.log(`Allure adapter version: ${allureAdapterVersion}`);
       console.log(config.env);
       console.log(' === ');
       
@@ -51,6 +66,8 @@ module.exports = defineConfig({
       on('before:run', details => {
         reporter?.writeEnvironmentInfo({
           info: {
+            "cypress version": cypressVersion,
+            "allure adapter version": allureAdapterVersion,
             // any env info you want to see in report
             os: details.system.osName,
             osVersion: details.system.osVersion,
@@ -58,6 +75,7 @@ module.exports = defineConfig({
           },
         });
       
+        // this can be removed if you don't want to group tests into categories in AllureReport
         reporter?.writeCategoriesDefinitions({ categories: './allure-error-categories.json' });
       });
     
