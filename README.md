@@ -6,8 +6,12 @@ This is repo with examples of using [@mmisty/cypress-allure-adapter](https://www
 There are several examples: 
  - cypress-js (setup and usage with javascript)
  - cypress-js-gherkin (setup and usage with javascript and gherkin plugin @badeball/cypress-cucumber-preprocessor)
+ - cypress-ts (setup and usage with typescript)
 
 To check out go in examples folder.
+
+To see report example you can visit [https://mmisty.github.io/cypress-allure-adapter-example](https://mmisty.github.io/cypress-allure-adapter-example)
+
 
 ## Scripts
 Each example folder has scripts.
@@ -23,6 +27,7 @@ Before running scripts install all packages by `npm i`.
    ```shell
    npm run cy:run
    ```
+  
 ## Root scripts
 - open allure report :
    ```shell
@@ -34,5 +39,3 @@ Before running scripts install all packages by `npm i`.
    npm run cy:run:with:report
    ```
    
-
-To see report example you can visit [https://mmisty.github.io/cypress-allure-adapter-example](https://mmisty.github.io/cypress-allure-adapter-example)

@@ -8,11 +8,11 @@
     "install:packages:js": "cd examples/cypress-js && npm i ",
     "install:packages:gherkin": "cd examples/cypress-js-gherkin && npm i",
     "install:packages:ts": "cd examples/cypress-ts && npm i",
-    "install": "npm run install:packages:js && npm run install:packages:ts && npm run install:packages:gherkin",
+    "install:all": "npm run install:packages:js && npm run install:packages:ts && npm run install:packages:gherkin",
     "build": "cd examples/cypress-ts && npm run build",
-    "cy:js": "cd examples/cypress-js && npm run cy:run",
-    "cy:gherkin": "cd examples/cypress-js-gherkin && npm run cy:run",
-    "cy:ts": "cd examples/cypress-ts && npm run cy:run",
+    "cy:js": "cd examples/cypress-js && npm run cy:run || true && npm run cp",
+    "cy:gherkin": "cd examples/cypress-js-gherkin && npm run cy:run || true && npm run cp",
+    "cy:ts": "cd examples/cypress-ts && npm run cy:run || true && npm run cp",
     "cy:all": "rm -rf allure-results allure-report && npm run cy:js || true && npm run cy:gherkin || true && npm run cy:ts || true",
     "report:open": "allure serve",
     "report:generate": "allure generate",
@@ -30,21 +30,5 @@
   "bugs": {
     "url": "https://github.com/mmisty/cypress-allure-adapter-example/issues"
   },
-  "homepage": "https://github.com/mmisty/cypress-allure-adapter-example#readme",
-  "cypress-cucumber-preprocessor": {
-    "stepDefinitions": [
-      "cypress/support/steps.js",
-      "cypress/gherkin/**/*.{js}"
-    ]
-  },
-  "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^19.0.1",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "@mmisty/cypress-allure-adapter": "0.16.5",
-    "allure-commandline": "^2.24.1",
-    "cypress": "^13.10.0"
-  },
-  "devDependencies": {
-    "events": "^3.3.0"
-  }
+  "homepage": "https://github.com/mmisty/cypress-allure-adapter-example#readme"
 }

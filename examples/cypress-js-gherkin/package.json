@@ -5,12 +5,10 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "npx cypress open --e2e",
-    "cy:run": "npx cypress run --browser chrome --headless --env allure=true",
-    "report:open": "allure serve ../../../allure-results",
-    "report:generate": "allure generate ../../../allure-results",
-    "cy:run:with:report": "(npm run cy:run || true) && npm run report:open",
-    "pages:update": "(npm run cy:run || true) && mv -f docs/history allure-results/history || true && npm run report:generate -- --clean && rm -rf docs && cp -R allure-report docs",
-    "report:history": "mv -f docs/history allure-results/history && rm -r allure-report || true",
+    "cy:run": "rm -rf allure-results && npx cypress run --browser chrome --headless --env allure=true",
+    "cp": "cp -r allure-results ../../",
+    "report:open": "allure serve allure-results",
+    "report:generate": "allure generate allure-results",
     "report": "npm run report:open"
   },
   "repository": {
@@ -29,11 +27,11 @@
     ]
   },
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^19.0.1",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "@mmisty/cypress-allure-adapter": "^0.16.5",
+    "@badeball/cypress-cucumber-preprocessor": "^19.1.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
+    "@mmisty/cypress-allure-adapter": "^2.0.8",
     "allure-commandline": "^2.29.0",
-    "cypress": "^13.10.0"
+    "cypress": "^13.12.0"
   },
   "devDependencies": {
     "events": "^3.3.0"
