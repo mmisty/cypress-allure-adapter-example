@@ -32,7 +32,7 @@ jobs:
           git diff
           ls -a
           git add . 
-          git commit 'update'
+          git commit -m 'auto update'
           git push
 
     - name: Versions
