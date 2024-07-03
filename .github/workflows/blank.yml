@@ -29,10 +29,9 @@ jobs:
         command: |
           npm i
           npm run update:adapter
-          cd ~/
+          cd ../../
           ls -a
-          git add package.json
-          git add package-lock.json
+          git add . 
           git commit 'update'
           git push
 
