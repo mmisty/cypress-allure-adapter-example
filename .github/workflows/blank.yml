@@ -27,7 +27,7 @@ jobs:
         timeout_minutes: 10
         max_attempts: 1
         command: |
-          npm i
+          npm ci
           npm run update:adapter
           git diff
           ls -a
