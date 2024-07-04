@@ -10,7 +10,7 @@
     "report:open": "allure serve allure-results",
     "report:generate": "allure generate allure-results",
     "report": "npm run report:open",
-    "build": "tsc"
+    "build": "tsc --project tsconfig.json"
   },
   "repository": {
     "type": "git",
