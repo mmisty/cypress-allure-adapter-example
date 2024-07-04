@@ -33,7 +33,10 @@ jobs:
           ls -a
           git add . 
           git commit -m 'auto update'
-          git push
+          git config --global user.email "cypress-allure@example.com"
+          git config --global user.name "Cypress Allure CI"
+          git pull 
+          git push 
 
     - name: Versions
       run: |
