@@ -39,6 +39,10 @@ jobs:
           git diff
           echo "---"
           
+    - name: Update pages
+      run: |
+        npm run pages:update
+        
     - name: Commit and push changes
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -50,7 +54,7 @@ jobs:
         git add .
         git commit -m "chore: bump version to ${{ env.new_version }}"
         git push origin $BRANCH_NAME
-
+   
     - name: Versions
       run: |
         node --version
