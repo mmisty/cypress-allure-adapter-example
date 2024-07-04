@@ -25,6 +25,11 @@ jobs:
     - name: Install Node
       uses: volta-cli/action@v4
       
+    - name: Versions
+      run: |
+        node --version
+        npm --version
+      
     - name: Install
       uses: nick-fields/retry@v2
       with:
@@ -56,8 +61,3 @@ jobs:
         git commit -m "chore: bump version to ${{ env.new_version }}"
         git push origin $BRANCH_NAME
    
-    - name: Versions
-      run: |
-        node --version
-        npm --version
-      
