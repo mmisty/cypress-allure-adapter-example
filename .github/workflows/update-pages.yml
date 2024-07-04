@@ -69,6 +69,7 @@ jobs:
         echo "Branch: $BRANCH_NAME" 
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git fetch origin $BRANCH_NAME
         git checkout $BRANCH_NAME
         git add .
         git commit -m "chore: bump version to ${{ env.new_version }}"
