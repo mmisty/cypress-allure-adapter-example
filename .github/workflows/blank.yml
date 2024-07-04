@@ -27,16 +27,21 @@ jobs:
         timeout_minutes: 10
         max_attempts: 1
         command: |
+          branch=${{ github.ref }}
+          echo "Branch: $branch" 
           npm ci
           npm run update:adapter
+          echo "GIT DIFF"
           git diff
+          echo "---"
           ls -a
           git add . 
           git commit -m 'auto update'
           git config --global user.email "cypress-allure@example.com"
           git config --global user.name "Cypress Allure CI"
+          git checkout $branch
           git pull 
-          git push 
+          git push origin HEAD:$branch
 
     - name: Versions
       run: |
