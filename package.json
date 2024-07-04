@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "update:adapter:js": "cd examples/cypress-js && npm install @mmisty/cypres-allure-adapter@latest",
-    "update:adapter:ts": "cd examples/cypress-ts && npm install @mmisty/cypres-allure-adapter@latest",
-    "update:adapter:gherkin": "cd examples/cypress-js-gherkin && npm install @mmisty/cypres-allure-adapter@latest",
+    "update:adapter:js": "cd examples/cypress-js && npm install @mmisty/cypress-allure-adapter@latest",
+    "update:adapter:ts": "cd examples/cypress-ts && npm install @mmisty/cypress-allure-adapter@latest",
+    "update:adapter:gherkin": "cd examples/cypress-js-gherkin && npm install @mmisty/cypress-allure-adapter@latest",
     "update:adapter": "npm run update:adapter:js && npm run update:adapter:ts && npm run update:adapter:gherkin",
     "install:packages:js": "cd examples/cypress-js && npm i ",
     "install:packages:gherkin": "cd examples/cypress-js-gherkin && npm i",
