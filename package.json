@@ -24,7 +24,8 @@
     "report:open": "allure serve",
     "report:generate": "allure generate",
     "cy:run:with:report": "(npm run cy:all || true) && npm run report:open",
-    "pages:update": "npm run build && (npm run cy:all || true) && mv -f docs/history allure-results/history || true && npm run report:generate -- --clean && rm -rf docs && cp -R allure-report docs",
+    "pages:update": "(npm run cy:all || true) && mv -f docs/history allure-results/history || true && npm run report:generate -- --clean && rm -rf docs && cp -R allure-report docs",
+    "pages:build:and:update": "npm run build && npm run pages:update",
     "report:history": "mv -f docs/history allure-results/history && rm -r allure-report || true",
     "report": "npm run report:open"
   },
