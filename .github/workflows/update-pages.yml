@@ -37,6 +37,7 @@ jobs:
         max_attempts: 1
         command: |
           npm ci
+          npx tsc --version
 
     - name: Update adapter
       run: |
