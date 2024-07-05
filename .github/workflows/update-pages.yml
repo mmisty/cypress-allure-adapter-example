@@ -57,7 +57,7 @@ jobs:
           
     - name: Update pages
       run: |
-        npm run pages:update
+        npm run pages:build:and:update
         
     - name: Commit and push changes
       env:
