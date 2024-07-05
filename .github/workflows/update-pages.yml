@@ -54,7 +54,12 @@ jobs:
         echo "GIT DIFF"
         git diff
         echo "---"
-          
+
+    - name: Build TS
+      run: |
+        cd examples/cypress-ts
+        npm run build
+    
     - name: Update pages
       run: |
         npm run pages:update
