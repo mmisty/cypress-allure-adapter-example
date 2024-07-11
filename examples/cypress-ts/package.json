@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/mmisty/cypress-allure-adapter-example#readme",
   "dependencies": {
-    "@mmisty/cypress-allure-adapter": "^2.5.0",
+    "@mmisty/cypress-allure-adapter": "^2.5.1",
     "allure-commandline": "^2.29.0",
     "cypress": "^13.13.0",
     "typescript": "^5.2.2"
