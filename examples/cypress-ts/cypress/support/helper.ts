@@ -1,4 +1,4 @@
-export const htmlFormatted = `
+export const htmlFormatted = (htmlBody?: string, script?: string)=>  `
     <html>
     <head>
     <style>
@@ -34,6 +34,7 @@ export const htmlFormatted = `
 </head>
     
     <body>
+        ${htmlBody}
         <div class="dialog-container">
             <div class="dialog">
               <div class="title">Dialog title</div>
@@ -63,18 +64,22 @@ export const htmlFormatted = `
         </div>
     </body>
     </html>
+    <script>${script}</script>
     `;
 
 
 export const visitHtml = (options?: {
   htmlOverride?: string,
+  additionalBodyHtml?: string,
   delayBeforeLoad?: number,
   visitTimeout?: number
+  script?: string;
 }) => {
   cy.intercept('mytest.com**', {
-    body: options?.htmlOverride ?? htmlFormatted,
+    body: options?.htmlOverride ?? htmlFormatted(options?.additionalBodyHtml, options?.script),
     delayMs: options?.delayBeforeLoad ?? 200,
   });
   cy.visit('mytest.com', options?.visitTimeout ? { timeout: options.visitTimeout } : {});
 };
+
 
