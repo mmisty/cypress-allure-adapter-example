@@ -26,6 +26,7 @@ module.exports = defineConfig({
       allureResults: 'allure-results',
       // when using Allure TestOps:
       // allureResultsWatchPath: 'allure-results/watch'
+      allureAddBodiesToRequests: '*'
     },
     setupNodeEvents(on, config) {
       const reporter = configureAllureAdapterPlugins(on, config);
