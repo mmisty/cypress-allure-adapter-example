@@ -1,38 +1,36 @@
-import { visitHtml } from "../../support/helper";
+import { visitHtml } from '../../support/helper';
 
-it('0601 should have tags for root', { tags: [ '@test("hello")'] }, function() {
-  console.log(this.test)
+it('0601 should have tags for root', { tags: ['@test("hello")'] }, function () {
+  console.log(this.test);
   cy.log(`${this.test?.tags?.map(t => t.tag)}`);
 });
 
-describe('interface @interfaceTag', {retries: 2}, () => {
-  describe('links @tagTitle', { tags: ['@ff'] },() => {
-    Cypress.Allure.on('test:started', ()=> {
+describe('interface @interfaceTag', { retries: 2 }, () => {
+  describe('links @tagTitle', { tags: ['@ff'] }, () => {
+    Cypress.Allure.on('test:started', () => {
       Cypress.Allure.epic('interface');
       Cypress.Allure.feature('links');
     });
-    
+
     beforeEach(() => {
       visitHtml();
     });
-    
-    it('0601 should have link issue', { tags: [ '@test("hello")'] }, function() {
-      console.log(this.test)
+
+    it('0601 should have link issue', { tags: ['@test("hello")'] }, function () {
+      console.log(this.test);
       cy.log(`${this.test?.tags?.map(t => t.tag)}`);
       cy.allure().issue('http://jira.com/ABC-123');
-      cy.get('[data-test-id="data-surname-section"]')
-        .should('exist')
-        .should('contain.text', 'family name');
+      cy.get('[data-test-id="data-surname-section"]').should('exist').should('contain.text', 'family name');
     });
-    
-    it('0601 should have tags on retry', { tags: [ '@test("hello")'] }, function() {
-      console.log(this.test)
+
+    it('0601 should have tags on retry', { tags: ['@test("hello")'] }, function () {
+      console.log(this.test);
       cy.log(`${this.test?.tags?.map(t => t.tag)}`);
-      cy.wrap(null).then(()=> {
+      cy.wrap(null).then(() => {
         throw Error('purpose');
-      })
+      });
     });
-    
+
     // it('0602 should have link tms', () => {
     //   cy.allure().tms('http://jira.com/ABC-123');
     //   cy.get('[data-test-id="data-name-section"] input')
@@ -74,5 +72,5 @@ describe('interface @interfaceTag', {retries: 2}, () => {
     //   cy.throw('Fail in test - on purpose');
     //
     // });
-  })
-})
+  });
+});

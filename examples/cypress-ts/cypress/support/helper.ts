@@ -1,4 +1,4 @@
-export const htmlFormatted = (htmlBody?: string, script?: string)=>  `
+export const htmlFormatted = (htmlBody?: string, script?: string) => `
     <html>
     <head>
     <style>
@@ -67,12 +67,11 @@ export const htmlFormatted = (htmlBody?: string, script?: string)=>  `
     <script>${script}</script>
     `;
 
-
 export const visitHtml = (options?: {
-  htmlOverride?: string,
-  additionalBodyHtml?: string,
-  delayBeforeLoad?: number,
-  visitTimeout?: number
+  htmlOverride?: string;
+  additionalBodyHtml?: string;
+  delayBeforeLoad?: number;
+  visitTimeout?: number;
   script?: string;
 }) => {
   cy.intercept('mytest.com**', {
@@ -81,5 +80,3 @@ export const visitHtml = (options?: {
   });
   cy.visit('mytest.com', options?.visitTimeout ? { timeout: options.visitTimeout } : {});
 };
-
-
