@@ -17,13 +17,13 @@
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
 
-Cypress.Commands.add('throw',  (message) => {
-    throw new Error(message);
-})
+Cypress.Commands.add('throw', message => {
+  throw new Error(message);
+});
 
-Cypress.Commands.add('qaId',  (selector) => {
-    cy.get(`[data-test-id=${selector}`);
-})
+Cypress.Commands.add('qaId', selector => {
+  cy.get(`[data-test-id=${selector}`);
+});
 
 //
 // -- This will overwrite an existing command --

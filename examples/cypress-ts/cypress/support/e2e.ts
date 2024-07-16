@@ -15,7 +15,6 @@
 //impiort cypress allure adapter first to have all custom
 // commands being collapsed in report as parent command
 import '@mmisty/cypress-allure-adapter/support';
-
 // Import commands.js using ES2015 syntax:
 import './commands';
 
@@ -26,36 +25,36 @@ import './commands';
  */
 const addSuiteLabels = (test: Mocha.Test, parentSuite: string) => {
   const title = test.titlePath();
-  
-  if (title.length >= 1){
+
+  if (title.length >= 1) {
     // test, no suite
     Cypress.Allure.parentSuite(parentSuite);
   }
-  
-  if (title.length >= 2){
+
+  if (title.length >= 2) {
     // suite + test
     const parent = title[0];
     Cypress.Allure.suite(parent);
   }
-  
-  if (title.length === 3 ) {
+
+  if (title.length === 3) {
     // suite + subsuite + test
     const suite = title[1];
     Cypress.Allure.subSuite(suite);
   }
-  
+
   if (title.length >= 4) {
     // suite + subsuite + (...) +  test
     const suite = title[1];
     const subSuite = title[2];
     Cypress.Allure.subSuite(suite + (' -> ' + subSuite));
   }
-}
+};
 
 // example adding host and thread to see in timeline
-Cypress.Allure?.on('test:started', (test) => {
+Cypress.Allure?.on('test:started', test => {
   Cypress.Allure.host('my-host');
   Cypress.Allure.thread(Cypress.env('thread') ?? '01');
   Cypress.Allure.fullName(`cypress-ts ${test.fullTitle()}`);
-  addSuiteLabels(test, 'cypress-ts')
-})
+  addSuiteLabels(test, 'cypress-ts');
+});
