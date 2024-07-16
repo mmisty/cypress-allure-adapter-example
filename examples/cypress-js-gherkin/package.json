@@ -31,7 +31,7 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
     "@mmisty/cypress-allure-adapter": "^2.5.6",
     "allure-commandline": "^2.29.0",
-    "cypress": "^13.13.0"
+    "cypress": "^13.13.1"
   },
   "devDependencies": {
     "events": "^3.3.0"
