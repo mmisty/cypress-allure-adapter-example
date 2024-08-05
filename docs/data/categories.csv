@@ -1,4 +1,4 @@
-"Category","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
-"Product defects","7","0","0","0","0"
-"Errors on purpose","6","0","0","0","0"
-"Tests to review","0","2","0","2","0"
+"BROKEN","CATEGORY","FAILED","PASSED","SKIPPED","UNKNOWN"
+"0","Product defects","7","0","0","0"
+"0","Errors on purpose","6","0","0","0"
+"2","Tests to review","0","0","2","0"
