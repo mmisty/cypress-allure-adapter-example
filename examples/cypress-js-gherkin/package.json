@@ -29,9 +29,9 @@
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
-    "@mmisty/cypress-allure-adapter": "^2.7.2",
+    "@mmisty/cypress-allure-adapter": "^3.0.0",
     "allure-commandline": "^2.29.0",
-    "cypress": "^13.13.3"
+    "cypress": "^13.14.0"
   },
   "devDependencies": {
     "events": "^3.3.0"
