@@ -27,10 +27,10 @@
     ]
   },
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "@mmisty/cypress-allure-adapter": "^3.2.3",
-    "allure-commandline": "^2.29.0",
+    "allure-commandline": "^2.32.0",
     "cypress": "^14.0.1"
   },
   "devDependencies": {
