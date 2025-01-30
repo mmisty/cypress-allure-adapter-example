@@ -210,6 +210,34 @@ allure.api.addTranslation('isv', {
     }
 });
 
+allure.api.addTranslation('ka', {
+    tab: {
+        behaviors: {
+            name: 'ფუნქციონალი',
+        }
+    },
+    widget: {
+        behaviors: {
+            name: 'ფუნქციონალი',
+            showAll: 'ყველას ჩვენება',
+        }
+    }
+});
+
+allure.api.addTranslation('it', {
+    tab: {
+        behaviors: {
+            name: 'Comportamenti'
+        }
+    },
+    widget: {
+        behaviors: {
+            name: 'Funzionalità per storie',
+            showAll: 'Mostra tutto'
+        }
+    }
+});
+
 allure.api.addTab('behaviors', {
     title: 'tab.behaviors.name', icon: 'fa fa-list',
     route: 'behaviors(/)(:testGroup)(/)(:testResult)(/)(:testResultTab)(/)',
