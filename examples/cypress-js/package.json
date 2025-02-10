@@ -24,6 +24,6 @@
   "dependencies": {
     "@mmisty/cypress-allure-adapter": "^3.2.3",
     "allure-commandline": "^2.32.0",
-    "cypress": "^14.0.1"
+    "cypress": "^14.0.2"
   }
 }
